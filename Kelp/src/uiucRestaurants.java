@@ -2,14 +2,16 @@ import java.util.Scanner;
 
 public class uiucRestaurants {
 	public static void timeOfDay(String userInput) {
-		if (userInput.equals("Morning")) {
+		
+		
+		if (userInput.equals("morning")) {
 			System.out.println("Breakfast!");
 		}
-		if (userInput.equals("Afternoon")) {
+		if (userInput.equals("afternoon")) {
 			System.out.println("Lunch");
 
 		}
-		if (userInput.equals("Night")) {
+		if (userInput.equals("night")) {
 			System.out.println("Dinner");
 
 		}
@@ -22,8 +24,9 @@ public class uiucRestaurants {
 		Scanner scanner = new Scanner(System.in);
 		String timeOfDay = scanner.nextLine();
 		scanner.close();
+		String test = timeOfDay.toLowerCase();
 		// Calling helper method that takes into account the time in the day 
-		timeOfDay(timeOfDay);
+		timeOfDay(test);
 		
 		
 		
