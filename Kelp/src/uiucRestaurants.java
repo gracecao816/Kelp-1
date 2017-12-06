@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class uiucRestaurants {
 	public static void timeOfDay(String userInput) {
-		if (userInput.equals("Breakfast")) {
-			System.out.println("Morning!");
+		if (userInput.equals("Morning")) {
+			System.out.println("Breakfast!");
 		}
-		if (userInput.equals("Lunch")) {
-			System.out.println("Afternoon");
+		if (userInput.equals("Afternoon")) {
+			System.out.println("Lunch");
 
 		}
-		if (userInput.equals("Dinner")) {
-			System.out.println("Night");
+		if (userInput.equals("Night")) {
+			System.out.println("Dinner");
 
 		}
 	}
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello! You must be hungry! Are you craving Breakfast, Lunch, or Dinner?");
+		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
 		Scanner scanner = new Scanner(System.in);
 		String timeOfDay = scanner.nextLine();
