@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class uiucRestaurants {
@@ -48,7 +50,8 @@ public static void typeOfFood(String userInput) {
 
 		}
 	}
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws FileNotFoundException {
 
 		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
@@ -71,6 +74,13 @@ public static void typeOfFood(String userInput) {
 		foodScanner.close();
 		scanner.close();
 		
+		Scanner inGSR = new Scanner(new File("greenStreetRestaurants"));
+		StringBuilder sb = new StringBuilder();
+		while (inGSR.hasNext()) {
+			sb.append(inGSR.nextLine());
+		}
+		String[] array = sb.toString().split("\n");
+		inGSR.close();
 
 	}
 
