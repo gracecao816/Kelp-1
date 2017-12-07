@@ -1,3 +1,6 @@
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.Scanner;
 //import java.io.File;
 //import java.io.FileNotFoundException;
@@ -85,7 +88,6 @@ public class uiucRestaurants {
 		}
 	}
 
-	public static void main(String[] args) {
 
 		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
@@ -107,7 +109,6 @@ public class uiucRestaurants {
 
 		foodScanner.close();
 		scanner.close();
-
 
 	}
 
