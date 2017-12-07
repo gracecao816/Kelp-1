@@ -31,6 +31,17 @@ public class uiucRestaurants {
 
 		}
 	}
+	public static void choice(String userInput) {
+		
+		
+		if (userInput.equals("random generator")) {
+			System.out.println("Continue");
+		}
+		if (userInput.equals("input your requirements")) {
+			System.out.println("Continue");
+
+		}
+	}
 	
 	// Splitting up Green Street Text File into genres 
 	public static void genreOfFoodScript(int start, int finish) {
@@ -88,7 +99,18 @@ public class uiucRestaurants {
 		}
 	}
 
+		
 
+	public static void main(String[] args) {
+		
+		System.out.println("Would you like to use our random generator or input your requirements?");
+		Scanner userChoice = new Scanner(System.in);
+		String choice = userChoice.nextLine();
+		
+		String option = choice.toLowerCase();
+		// Calling helper method that takes into account the time in the day 
+		choice(option);
+		
 		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
 		Scanner scanner = new Scanner(System.in);
@@ -109,6 +131,7 @@ public class uiucRestaurants {
 
 		foodScanner.close();
 		scanner.close();
+		userChoice.close();
 
 	}
 
