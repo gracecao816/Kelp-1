@@ -1,5 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.Scanner;
 
 public class uiucRestaurants {
@@ -50,8 +51,26 @@ public static void typeOfFood(String userInput) {
 
 		}
 	}
+public static void choice(String userInput) {
+	
+	
+	if (userInput.equals("random generator")) {
+		System.out.println("Continue");
+	}
+	if (userInput.equals("input your requirements")) {
+		System.out.println("Continue");
 
-	public static void main(String[] args) throws FileNotFoundException {
+	}
+}
+
+	public static void main(String[] args) {  
+		System.out.println("Would you like to use our random generator or input your requirements?");
+		Scanner userChoice = new Scanner(System.in);
+		String choice = userChoice.nextLine();
+		
+		String option = choice.toLowerCase();
+		// Calling helper method that takes into account the time in the day 
+		choice(option);
 
 		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
@@ -74,14 +93,19 @@ public static void typeOfFood(String userInput) {
 		foodScanner.close();
 		scanner.close();
 		
-		Scanner inGSR = new Scanner(new File("greenStreetRestaurants"));
-		StringBuilder sb = new StringBuilder();
-		while (inGSR.hasNext()) {
-			sb.append(inGSR.nextLine());
+		String filePath = "resources/restaurants/greenStreetRestaurants";
+		try {
+			LineNumberReader lineReader = new LineNumberReader (new FileReader(filePath));
+			String lineText = null;
+			
+			while ((lineText = lineReader.readLine())!= null) {
+				System.out.println(lineReader.getLineNumber()+ ":" + lineText);
+			}
+			lineReader.close();
+		} catch (IOException ex)
+		{
+			System.err.println(ex);
 		}
-		String[] array = sb.toString().split("\n");
-		inGSR.close();
-
 	}
 
 }
