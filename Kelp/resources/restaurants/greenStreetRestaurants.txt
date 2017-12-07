@@ -1,4 +1,4 @@
-Asian 
+ASIAN
 
 A-Ri-Rang (607 S Wright St)
 
@@ -30,7 +30,7 @@ Woori Jib Restaurant (710 S 6th St)
 
 Y Eatery (1001 S Wright St)
 
-American Chain Restaurants
+AMERICAN CHAIN RESTAURANTS
 
 Beef Stand (611 E Green St)
 
@@ -54,7 +54,7 @@ Penn Station (605 S 6th St)
 
 Potbelly’s (501 E Green St)
 
-Pub Food
+PUB FOOD
  
 Fire Haus (708 S 6th St) 
 
@@ -62,13 +62,13 @@ Legends (522 E Green St)
 
 Murphy’s Pub (604 E Green St)  
 
-Mexican
+MEXICAN
 
 Maize Mexican Grill (60 E Green St) 
 
 Tortica’s (408 E Green St) 
 
-Pizza
+PIZZA
 
 Papa Del’s (206 E Green St) 
 
@@ -76,13 +76,13 @@ Papa John’s (106 E Green St)
 
 Pizza Hut (411 E Green St)  
 
-Greek
+GREEK
 
 Niro’s Gyros (1007 W University Ave) 
 
 Zorba’s (627 E Green St)  
 
-Dessert or Coffee
+DESSERT OR COFFEE
 
 Beri & Roll Model (701 S 6th St) 
 
