@@ -31,17 +31,40 @@ public class uiucRestaurants {
 
 		}
 	}
+	
+	//surprise random option
+	public static void surpriseMe(int start, int finish) {
+		String filePath = "resources/restaurants/surpriseRecommendations.txt";
+		try {
+			LineNumberReader lineReader = new LineNumberReader(new FileReader(filePath));
+			String lineText = null;
+
+			while ((lineText = lineReader.readLine()) != null) {
+				int lineNumber = lineReader.getLineNumber();
+				if (lineNumber >= start && lineNumber <= finish) {
+					System.out.println(lineText);
+				}
+			}
+			lineReader.close();
+		} catch (IOException ex) {
+			System.err.println(ex);
+		}
+	}
+	
 	public static void choice(String userInput) {
 		
 		
-		if (userInput.equals("random generator")) {
-			System.out.println("Continue");
+		if (userInput.equals("random generator") || userInput.equals("random")) {
+			System.out.println("We recommend...");
+			int begin = (int)(Math.random() * 26);
+			surpriseMe(begin,begin);
 		}
-		if (userInput.equals("input your requirements")) {
+		if (userInput.equals("input your requirements") || userInput.equals("input")) {
 			System.out.println("Continue");
 
 		}
 	}
+
 	
 	// Splitting up Green Street Text File into genres 
 	public static void genreOfFoodScript(int start, int finish) {
@@ -108,8 +131,14 @@ public class uiucRestaurants {
 		String choice = userChoice.nextLine();
 		
 		String option = choice.toLowerCase();
-		// Calling helper method that takes into account the time in the day 
+		// Calling helper method that takes into if the user wants to go random or input parameters 
 		choice(option);
+		
+		if(option.equals("random")) {
+			System.out.println("Would you like to try again?");
+		}
+		
+		
 		
 		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
 
