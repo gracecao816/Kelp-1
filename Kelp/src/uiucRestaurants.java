@@ -31,6 +31,27 @@ public class uiucRestaurants {
 
 		}
 	}
+	public static void userGenerated() {
+		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
+		Scanner scanner = new Scanner(System.in);
+		String timeOfDay = scanner.nextLine();
+
+		String test = timeOfDay.toLowerCase();
+		// Calling helper method that takes into account the time in the day
+		timeOfDay(test);
+
+		System.out.println("What type of food would you like? Your options are: "
+				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee");
+
+		Scanner foodScanner = new Scanner(System.in);
+		String foodOption = foodScanner.nextLine();
+		String food = foodOption.toLowerCase();
+		// Calling helper method that takes into account the genre of food to get
+		typeOfFood(food);
+
+		foodScanner.close();
+		scanner.close();
+	}
 	
 	//surprise random option
 	public static void surpriseMe(int start, int finish) {
@@ -43,26 +64,42 @@ public class uiucRestaurants {
 				int lineNumber = lineReader.getLineNumber();
 				if (lineNumber >= start && lineNumber <= finish) {
 					System.out.println(lineText);
+					
 				}
 			}
 			lineReader.close();
 		} catch (IOException ex) {
 			System.err.println(ex);
 		}
+		
 	}
 	
+	// 
 	public static void choice(String userInput) {
 		
 		
-		if (userInput.equals("random generator") || userInput.equals("random")) {
+		if (userInput.contains("random")) {
 			System.out.println("We recommend...");
 			int begin = (int)(Math.random() * 26);
 			surpriseMe(begin,begin);
 		}
-		if (userInput.equals("input your requirements") || userInput.equals("input")) {
-			System.out.println("Continue");
+		if (userInput.equals("input")) {
+//			System.out.println("Continue");
+			userGenerated();
 
 		}
+	}
+	
+	public static void nextChoice(String nextChoiceOption) {
+		if (nextChoiceOption.contains("yes")) {
+			System.out.println("We recommend...");
+			int begin = (int)(Math.random() * 26);
+			surpriseMe(begin,begin);
+		}
+		if (nextChoiceOption.contains("no")) {
+			userGenerated();
+		}
+			
 	}
 
 	
@@ -134,34 +171,44 @@ public class uiucRestaurants {
 		// Calling helper method that takes into if the user wants to go random or input parameters 
 		choice(option);
 		
-		if(option.equals("random")) {
-			System.out.println("Would you like to try again?");
+		if (option.contains("random")) {
+			System.out.println("Would you like to try again? (Yes or No?)");
+			Scanner nextUserChoice = new Scanner(System.in);
+			String nextChoice = nextUserChoice.nextLine();
+			String nextChoiceOption = nextChoice.toLowerCase();
+			nextChoice(nextChoiceOption);
+			nextUserChoice.close();
+			
+			if (nextChoiceOption.contains("yes")) {
+				System.out.println("Would you like to try again? (Yes or No?)");
 		}
 		
 		
 		
-		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
-
-		Scanner scanner = new Scanner(System.in);
-		String timeOfDay = scanner.nextLine();
-
-		String test = timeOfDay.toLowerCase();
-		// Calling helper method that takes into account the time in the day
-		timeOfDay(test);
-
-		System.out.println("What type of food would you like? Your options are: "
-				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee");
-
-		Scanner foodScanner = new Scanner(System.in);
-		String foodOption = foodScanner.nextLine();
-		String food = foodOption.toLowerCase();
-		// Calling helper method that takes into account the genre of food to get
-		typeOfFood(food);
-
-		foodScanner.close();
-		scanner.close();
+		
+//		System.out.println("Hello! You must be hungry! What time of day is it (Morning, Afternoon, Night)?");
+//		Scanner scanner = new Scanner(System.in);
+//		String timeOfDay = scanner.nextLine();
+//
+//		String test = timeOfDay.toLowerCase();
+//		// Calling helper method that takes into account the time in the day
+//		timeOfDay(test);
+//
+//		System.out.println("What type of food would you like? Your options are: "
+//				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee");
+//
+//		Scanner foodScanner = new Scanner(System.in);
+//		String foodOption = foodScanner.nextLine();
+//		String food = foodOption.toLowerCase();
+//		// Calling helper method that takes into account the genre of food to get
+//		typeOfFood(food);
+//
+//		foodScanner.close();
+//		scanner.close();
 		userChoice.close();
+
 
 	}
 
+	}
 }
