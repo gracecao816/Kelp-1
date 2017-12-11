@@ -42,7 +42,7 @@ public class uiucRestaurants {
 		timeOfDay(test);
 
 		System.out.println("What type of food would you like? Your options are: "
-				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee");
+				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee, Bubble Tea");
 
 		Scanner foodScanner = new Scanner(System.in);
 		String foodOption = foodScanner.nextLine();
@@ -140,12 +140,12 @@ public class uiucRestaurants {
 
 		}
 
-		if (userInput.equals("american chain restaurants")) {
+		if (userInput.equals("american chain restaurants") || userInput.equals("american")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(34, 55);
 
 		}
-		if (userInput.equals("pub food")) {
+		if (userInput.equals("pub food") || userInput.equals("pub")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(58, 63);
 		}
@@ -164,9 +164,14 @@ public class uiucRestaurants {
 			genreOfFoodScript(80, 83);
 
 		}
-		if (userInput.equals("dessert or coffee")) {
+		if (userInput.equals("dessert or coffee") || userInput.equals("dessert") || userInput.equals("coffee")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(86, 95);
+		}
+		
+		if (userInput.equals("bubble tea") || userInput.equals("bubble") || userInput.equals("tea")) {
+			System.out.println("Let us show you some options!");
+			genreOfFoodScript(98, 113);
 		}
 	}
 
