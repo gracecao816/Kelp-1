@@ -5,21 +5,18 @@ import java.util.Scanner;
 
 public class uiucRestaurants {
 
-
 	public static void timeOfDay(String userInput) {
 
 		if (userInput.equals("morning")) {
 			System.out.println("Breakfast it is!");
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(2, 18);
-		}
-		else if (userInput.equals("afternoon")) {
+		} else if (userInput.equals("afternoon")) {
 			System.out.println("Lunch it is!");
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(20, 92);
 
-		}
-		else if (userInput.equals("night")) {
+		} else if (userInput.equals("night")) {
 			System.out.println("Dinner it is! Why don't we recommend you some desserts as well.");
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(94, 174);
@@ -69,7 +66,6 @@ public class uiucRestaurants {
 
 	}
 
-	//
 	public static void choice(String userInput) {
 
 		if (userInput.contains("random")) {
@@ -79,19 +75,6 @@ public class uiucRestaurants {
 		}
 		if (userInput.equals("input")) {
 			// System.out.println("Continue");
-			userGenerated();
-
-		}
-
-	}
-
-	public static void nextChoice(String nextChoiceOption) {
-		if (nextChoiceOption.contains("yes")) {
-			System.out.println("We recommend...");
-			int begin = (int) (Math.random() * 26);
-			surpriseMe(begin, begin, 1);
-		}
-		if (nextChoiceOption.contains("no")) {
 			userGenerated();
 		}
 
@@ -158,27 +141,22 @@ public class uiucRestaurants {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(34, 55);
 
-		}
-		else if (userInput.equals("pub food") || userInput.equals("pub")) {
+		} else if (userInput.equals("pub food") || userInput.equals("pub")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(58, 63);
-		}
-		else if (userInput.equals("mexican")) {
+		} else if (userInput.equals("mexican")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(66, 69);
 
-		}
-		else if (userInput.equals("pizza")) {
+		} else if (userInput.equals("pizza")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(74, 77);
 
-		}
-		else if (userInput.equals("greek")) {
+		} else if (userInput.equals("greek")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(80, 83);
 
-		}
-		else if (userInput.equals("dessert or coffee") || userInput.equals("dessert") || userInput.equals("coffee")) {
+		} else if (userInput.equals("dessert or coffee") || userInput.equals("dessert") || userInput.equals("coffee")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(86, 95);
 		}
@@ -217,3 +195,4 @@ public class uiucRestaurants {
 
 	}
 }
+
