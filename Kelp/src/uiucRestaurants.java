@@ -2,20 +2,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.Scanner;
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.net.URI;
-//import java.security.InvalidParameterException;
-//import java.util.ArrayList;
-//import java.io.FileInputStream;
-//import java.io.InputStream;
-//import java.util.List;
-//import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
 
 public class uiucRestaurants {
+
 
 	public static void timeOfDay(String userInput) {
 
@@ -24,18 +13,17 @@ public class uiucRestaurants {
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(2, 18);
 		}
-		if (userInput.equals("afternoon")) {
+		else if (userInput.equals("afternoon")) {
 			System.out.println("Lunch it is!");
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(20, 92);
 
 		}
-		if (userInput.equals("night")) {
+		else if (userInput.equals("night")) {
 			System.out.println("Dinner it is! Why don't we recommend you some desserts as well.");
 			System.out.println("Let us show you some options!");
 			timeOfDayOptions(94, 174);
 		}
-
 	}
 
 	public static void userGenerated() {
@@ -46,7 +34,6 @@ public class uiucRestaurants {
 		String test = timeOfDay.toLowerCase();
 		// Calling helper method that takes into account the time in the day
 		timeOfDay(test);
-		
 
 		System.out.println("What type of food would you like? Your options are: "
 				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee, Bubble Tea");
@@ -95,6 +82,7 @@ public class uiucRestaurants {
 			userGenerated();
 
 		}
+
 	}
 
 	public static void nextChoice(String nextChoiceOption) {
@@ -108,17 +96,18 @@ public class uiucRestaurants {
 		}
 
 	}
-	//ask for number of recommendations to generate (if > 10, tell them to go away)
+
+	// ask for number of recommendations to generate (if > 10, tell them to go away)
 	public static void numberOfRecommendations(int recommendations) {
-		if(recommendations >= 0 && recommendations <= 10) {
+		if (recommendations >= 0 && recommendations <= 10) {
 			System.out.println("We recommend...");
 			for (int j = 0; j < recommendations; j++) {
-			int begin = (int) (Math.random() * 26);
-			surpriseMe(begin, begin, recommendations);
+				int begin = (int) (Math.random() * 26);
+				surpriseMe(begin, begin, recommendations);
 			}
 		}
 
-	} 
+	}
 
 	// Splitting up Green Street Text File into genres
 	public static void genreOfFoodScript(int start, int finish) {
@@ -138,7 +127,7 @@ public class uiucRestaurants {
 			System.err.println(ex);
 		}
 	}
-	
+
 	public static void timeOfDayOptions(int start, int finish) {
 		String filePath = "resources/restaurants/timeOfDayOptions";
 		try {
@@ -165,39 +154,40 @@ public class uiucRestaurants {
 
 		}
 
-		if (userInput.equals("american chain restaurants") || userInput.equals("american")) {
+		else if (userInput.equals("american chain restaurants") || userInput.equals("american")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(34, 55);
 
 		}
-		if (userInput.equals("pub food") || userInput.equals("pub")) {
+		else if (userInput.equals("pub food") || userInput.equals("pub")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(58, 63);
 		}
-		if (userInput.equals("mexican")) {
+		else if (userInput.equals("mexican")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(66, 69);
 
 		}
-		if (userInput.equals("pizza")) {
+		else if (userInput.equals("pizza")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(74, 77);
 
 		}
-		if (userInput.equals("greek")) {
+		else if (userInput.equals("greek")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(80, 83);
 
 		}
-		if (userInput.equals("dessert or coffee") || userInput.equals("dessert") || userInput.equals("coffee")) {
+		else if (userInput.equals("dessert or coffee") || userInput.equals("dessert") || userInput.equals("coffee")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(86, 95);
 		}
-		
-		if (userInput.equals("bubble tea") || userInput.equals("bubble") || userInput.equals("tea")) {
+
+		else if (userInput.equals("bubble tea") || userInput.equals("bubble") || userInput.equals("tea")) {
 			System.out.println("Let us show you some options!");
 			genreOfFoodScript(98, 113);
 		}
+
 	}
 
 	public static void main(String[] args) {
@@ -208,61 +198,22 @@ public class uiucRestaurants {
 		String choice = userChoice.nextLine();
 
 		String option = choice.toLowerCase();
-		 //Calling helper method that takes into if the user wants to go random or input parameters
+		// Calling helper method that takes into if the user wants to go random or input
+		// parameters
 		choice(option);
-		
-		if(option.contains("random")) {
-		System.out.println("How many more recommendations would you like? (Up to 10)");
-		Scanner numberRecommendations = new Scanner(System.in);
-		String numRecommendations = numberRecommendations.nextLine();
-		int intNumRecommendations = Integer.parseInt(numRecommendations);	
-		if (intNumRecommendations <= 10) {
-		numberOfRecommendations(intNumRecommendations);
-		} else {
-			System.out.println("Please use our user input system instead.");
-			userGenerated();
+
+		if (option.contains("random")) {
+			System.out.println("How many more recommendations would you like? (Up to 10)");
+			Scanner numberRecommendations = new Scanner(System.in);
+			String numRecommendations = numberRecommendations.nextLine();
+			int intNumRecommendations = Integer.parseInt(numRecommendations);
+			if (intNumRecommendations <= 10) {
+				numberOfRecommendations(intNumRecommendations);
+			} else {
+				System.out.println("Please use our user input system instead.");
+				userGenerated();
+			}
 		}
-		}
-		
-
-
-		/**if (option.contains("random")) {
-			System.out.println("Would you like to try again? (Yes or No?)");
-			Scanner nextUserChoice = new Scanner(System.in);
-			String nextChoice = nextUserChoice.nextLine();
-			String nextChoiceOption = nextChoice.toLowerCase();
-			nextChoice(nextChoiceOption);
-			nextUserChoice.close();*/
-			
-
-			/**if (nextChoiceOption.contains("yes")) {
-				System.out.println("Would you like to try again? (Yes or No?)");
-			}*/
-			
-		}
-
-		// System.out.println("Hello! You must be hungry! What time of day is it
-		// (Morning, Afternoon, Night)?");
-		// Scanner scanner = new Scanner(System.in);
-		// String timeOfDay = scanner.nextLine();
-		//
-		// String test = timeOfDay.toLowerCase();
-		// // Calling helper method that takes into account the time in the day
-		// timeOfDay(test);
-		//
-		// System.out.println("What type of food would you like? Your options are: "
-		// + "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek,
-		// Dessert or Coffee");
-		//
-		// Scanner foodScanner = new Scanner(System.in);
-		// String foodOption = foodScanner.nextLine();
-		// String food = foodOption.toLowerCase();
-		// // Calling helper method that takes into account the genre of food to get
-		// typeOfFood(food);
-		//
-		// foodScanner.close();
-		// scanner.close();
-		//userChoice.close();
 
 	}
-
+}
