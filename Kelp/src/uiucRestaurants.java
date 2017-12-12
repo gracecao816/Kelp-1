@@ -30,6 +30,7 @@ public class uiucRestaurants {
 			System.out.println("Dinner it is! Why don't we recommend you some desserts as well.");
 
 		}
+
 	}
 
 	public static void userGenerated() {
