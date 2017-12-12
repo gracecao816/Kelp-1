@@ -27,7 +27,7 @@ public class uiucRestaurants {
 
 		}
 		if (userInput.equals("night")) {
-			System.out.println("Dinner it is!");
+			System.out.println("Dinner it is! Why don't we recommend you some desserts as well.");
 
 		}
 	}
@@ -177,6 +177,7 @@ public class uiucRestaurants {
 
 	public static void main(String[] args) {
 
+		System.out.println("Welcome!");
 		System.out.println("Would you like to use our random generator or input your requirements?");
 		Scanner userChoice = new Scanner(System.in);
 		String choice = userChoice.nextLine();
@@ -186,11 +187,17 @@ public class uiucRestaurants {
 		choice(option);
 		
 		if(option.contains("random")) {
-		System.out.println("How many more recommendations would you like?");
+		System.out.println("How many more recommendations would you like? (Up to 10)");
 		Scanner numberRecommendations = new Scanner(System.in);
 		String numRecommendations = numberRecommendations.nextLine();
-		int intNumRecommendations = Integer.parseInt(numRecommendations);			
+		int intNumRecommendations = Integer.parseInt(numRecommendations);	
+		if (intNumRecommendations <= 10) {
 		numberOfRecommendations(intNumRecommendations);
+		} else {
+			System.out.println("Please use our user input system instead.");
+			userGenerated();
+		}
+		}
 		
 
 
@@ -234,4 +241,3 @@ public class uiucRestaurants {
 
 	}
 
-}
