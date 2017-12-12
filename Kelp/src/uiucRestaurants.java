@@ -21,14 +21,19 @@ public class uiucRestaurants {
 
 		if (userInput.equals("morning")) {
 			System.out.println("Breakfast it is!");
+			System.out.println("Let us show you some options!");
+			timeOfDayOptions(2, 18);
 		}
 		if (userInput.equals("afternoon")) {
 			System.out.println("Lunch it is!");
+			System.out.println("Let us show you some options!");
+			timeOfDayOptions(20, 92);
 
 		}
 		if (userInput.equals("night")) {
 			System.out.println("Dinner it is! Why don't we recommend you some desserts as well.");
-
+			System.out.println("Let us show you some options!");
+			timeOfDayOptions(94, 174);
 		}
 
 	}
@@ -41,6 +46,7 @@ public class uiucRestaurants {
 		String test = timeOfDay.toLowerCase();
 		// Calling helper method that takes into account the time in the day
 		timeOfDay(test);
+		
 
 		System.out.println("What type of food would you like? Your options are: "
 				+ "Asian, American Chain Restaurants, Pub Food, Mexican, Pizza, Greek, Dessert or Coffee, Bubble Tea");
@@ -117,6 +123,24 @@ public class uiucRestaurants {
 	// Splitting up Green Street Text File into genres
 	public static void genreOfFoodScript(int start, int finish) {
 		String filePath = "resources/restaurants/greenStreetRestaurants.txt";
+		try {
+			LineNumberReader lineReader = new LineNumberReader(new FileReader(filePath));
+			String lineText = null;
+
+			while ((lineText = lineReader.readLine()) != null) {
+				int lineNumber = lineReader.getLineNumber();
+				if (lineNumber >= start && lineNumber <= finish) {
+					System.out.println(lineText);
+				}
+			}
+			lineReader.close();
+		} catch (IOException ex) {
+			System.err.println(ex);
+		}
+	}
+	
+	public static void timeOfDayOptions(int start, int finish) {
+		String filePath = "resources/restaurants/timeOfDayOptions";
 		try {
 			LineNumberReader lineReader = new LineNumberReader(new FileReader(filePath));
 			String lineText = null;
